@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Drowning Out</title>
+	<link rel="stylesheet" href="style.css" />
+	<script src="app.js" defer></script>
+</head>
+<body>
+	<main class="container">
+		<nav id="main-nav" class="nav" aria-label="Main navigation">
+			<a class="btn nav-link" href="#home" data-view="home">Home</a>
+			<a class="btn nav-link" href="#about" data-view="about">About</a>
+		</nav>
+
+		<section id="home" class="view active" aria-labelledby="home-heading">
+			<h1 id="home-heading">Home</h1>
+			<p>Click to continue</p>
+			<audio id="bg-music" src="Assets/Drowning Out.mp3" loop preload="auto" playsinline></audio>
+			<button class="btn" id="start-music" type="button" hidden>Start Music</button>
+		</section>
+
+		<section id="about" class="view" aria-labelledby="about-heading">
+			<h1 id="about-heading">About</h1>
+			<p>This project is based on the song "drowning out" by you'll never get to heaven. These animations are specifically focused on the lyrics: "drowning out, can't hear the words you shout" and explore various methods of presenting the emotional poignancy that this song evokes.</p>
+		</section>
+	</main>
+</body>
+</html>
