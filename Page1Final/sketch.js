@@ -4,24 +4,44 @@ let img
 let img2
 let x = 100
 let y = 100
-let xspeed = 2
-let yspeed = 2
-
+let xspeed = 1
+let yspeed = 1
+let link;
+let linkIsShowing = false;
+let imageClicked = false;
 
 //font and image
 function preload() {
   fontGenerator = loadFont('Monoton-Regular.ttf');
   img = loadImage('eyes.png');
   img2 = loadImage('eyes2.png');
+  sound = loadSound("music.mp3");
 
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  
+  link = createA('../Page2Final/index.html', 'Next Page', '_self');
+  link.position(width - 30, height-50);
+  link.style("color", "white");
+  sound.setVolume(1);
+  sound.loop();
+}
+
+function mousePressed() {
+  if (
+    mouseX > x &&
+    mouseX < x + 300 &&
+    mouseY > y &&
+    mouseY < y + 300
+  ) {
+    imageClicked = !imageClicked; // toggle on/off with each click
+  }
 }
 
 function draw() {
-  background(17,17,132);
+  background(17,17,90);
 
   //move image around
   image(img,x,y,100,100);
@@ -56,7 +76,7 @@ function draw() {
   textFont(fontGenerator);
   textSize(fontSize);
   textAlign(CENTER);
-  fill('black');
+  fill('grey');
 
   //determines height of row relative to the size of the font, higher means row is much wider
   const rowHeight = fontSize * 2;
@@ -94,5 +114,8 @@ function draw() {
       pop();
     }
   }
-
+   linkIsShowing = imageClicked; // for the sake of this, show the link only at the same time as we play the song
+  if (linkIsShowing){
+    link.show();
+  } else { link.hide();}
 }
